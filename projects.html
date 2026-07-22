@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Jarvis' residential and commercial projects across Gurugram." />
+  <title>Projects — Jarvis</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Jar<span>vis</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="btn btn-nav">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow">Our Portfolio</p>
+        <h1>Projects</h1>
+        <p class="lead">A curated collection of residential and commercial landmarks.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filters">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="residential">Residential</button>
+          <button class="chip" data-filter="commercial">Commercial</button>
+        </div>
+
+        <div class="cards">
+          <article class="card" data-type="residential">
+            <div class="card-media" style="--h:#1f3a5f"></div>
+            <div class="card-body">
+              <span class="tag">Residential</span>
+              <h3>The Edition</h3>
+              <p>3 &amp; 4 BHK sky residences on Golf Course Extension Road.</p>
+              <span class="price">From ₹2.4 Cr</span>
+            </div>
+          </article>
+          <article class="card" data-type="commercial">
+            <div class="card-media" style="--h:#3f5f1f"></div>
+            <div class="card-body">
+              <span class="tag">Commercial</span>
+              <h3>One World Plaza</h3>
+              <p>Grade-A office and retail space in Sector 79, Gurugram.</p>
+              <span class="price">From ₹85 L</span>
+            </div>
+          </article>
+          <article class="card" data-type="residential">
+            <div class="card-media" style="--h:#5f1f3a"></div>
+            <div class="card-body">
+              <span class="tag">Residential</span>
+              <h3>Orchard Green</h3>
+              <p>Low-rise garden homes amid 5 acres of landscaped greenery.</p>
+              <span class="price">From ₹1.8 Cr</span>
+            </div>
+          </article>
+          <article class="card" data-type="residential">
+            <div class="card-media" style="--h:#3a1f5f"></div>
+            <div class="card-body">
+              <span class="tag">Residential</span>
+              <h3>Aurelia Towers</h3>
+              <p>Ultra-luxury 4 BHK duplexes with private sky decks.</p>
+              <span class="price">From ₹4.9 Cr</span>
+            </div>
+          </article>
+          <article class="card" data-type="commercial">
+            <div class="card-media" style="--h:#5f4a1f"></div>
+            <div class="card-body">
+              <span class="tag">Commercial</span>
+              <h3>The Exchange</h3>
+              <p>Boutique high-street retail with dedicated F&amp;B zones.</p>
+              <span class="price">From ₹1.1 Cr</span>
+            </div>
+          </article>
+          <article class="card" data-type="residential">
+            <div class="card-media" style="--h:#1f5f5a"></div>
+            <div class="card-body">
+              <span class="tag">Residential</span>
+              <h3>Riverdale</h3>
+              <p>Riverside 2 &amp; 3 BHK homes with resort-style amenities.</p>
+              <span class="price">From ₹1.3 Cr</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">Jar<span>vis</span></a>
+        <p class="muted">Building landmarks of modern living across Gurugram.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Reach Us</h4>
+        <p class="muted">Sector 79, Gurugram, Haryana<br />+91 00000 00000<br />hello@jarvis.example</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Jarvis. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

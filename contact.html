@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact Jarvis to book a visit or enquire about a project." />
+  <title>Contact — Jarvis</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Jar<span>vis</span></a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="btn btn-nav active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-head">
+      <div class="container">
+        <p class="eyebrow">Let's Talk</p>
+        <h1>Contact Us</h1>
+        <p class="lead">Book a site visit or ask us anything — we usually reply within a day.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Enquiry</button>
+          <p class="form-note" id="formNote" role="status"></p>
+        </form>
+
+        <aside class="contact-info">
+          <h3>Sales Office</h3>
+          <p class="muted">Sector 79, Gurugram,<br />Haryana 122004, India</p>
+          <h3>Call</h3>
+          <p class="muted">+91 00000 00000</p>
+          <h3>Email</h3>
+          <p class="muted">hello@jarvis.example</p>
+          <h3>Hours</h3>
+          <p class="muted">Mon–Sat · 10:00 – 19:00</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">Jar<span>vis</span></a>
+        <p class="muted">Building landmarks of modern living across Gurugram.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Reach Us</h4>
+        <p class="muted">Sector 79, Gurugram, Haryana<br />+91 00000 00000<br />hello@jarvis.example</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> Jarvis. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
