@@ -34,14 +34,15 @@
 
     <section class="section">
       <div class="container contact-grid">
-        <form class="contact-form" id="contactForm" novalidate>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xlgqwdeg" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="New enquiry from Jarvis website" />
           <div class="field">
             <label for="name">Full name</label>
             <input type="text" id="name" name="name" required />
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input type="email" id="email" name="_replyto" required />
           </div>
           <div class="field">
             <label for="phone">Phone</label>

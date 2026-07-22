@@ -81,9 +81,37 @@
         note.className = "form-note err";
         return;
       }
-      note.textContent = "Thanks, " + name + "! Your enquiry has been noted. We'll be in touch soon.";
-      note.className = "form-note ok";
-      form.reset();
+      var btn = form.querySelector("button[type=submit]");
+      var btnText = btn ? btn.textContent : "";
+      if (btn) { btn.disabled = true; btn.textContent = "Sending…"; }
+      note.textContent = "Sending your enquiry…";
+      note.className = "form-note";
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      })
+        .then(function (res) {
+          if (res.ok) {
+            note.textContent = "Thanks, " + name + "! Your enquiry is on its way. We'll be in touch soon.";
+            note.className = "form-note ok";
+            form.reset();
+          } else {
+            return res.json().then(function (data) {
+              var msg = data && data.errors ? data.errors.map(function (e) { return e.message; }).join(", ")
+                : "Something went wrong. Please email us directly.";
+              throw new Error(msg);
+            });
+          }
+        })
+        .catch(function (err) {
+          note.textContent = err.message || "Network error. Please try again or email us directly.";
+          note.className = "form-note err";
+        })
+        .then(function () {
+          if (btn) { btn.disabled = false; btn.textContent = btnText; }
+        });
     });
   }
 })();
