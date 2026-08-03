@@ -11,7 +11,9 @@ Two designs live in git history:
 - **`v1` tag** — the original navy-and-gold corporate look, back when the brand was called "Jarvis". A folder copy also sits beside the repo at `../Jarvis Website v1 (navy-gold)`.
 - **`main` / `cartoon` branches** — the current cartoon redesign described below. Both point at the same commits; `main` is what GitHub Pages serves.
 
-The repo was renamed from `jarvis-website` to `skyscrapers-website` on 3 Aug 2026, so the live URL moved to `https://clauderobots.github.io/skyscrapers-website/`. GitHub redirects the old address, but prefer the new one everywhere.
+The repo was renamed from `jarvis-website` to `skyscrapers-website` on 3 Aug 2026, so the live URL moved to `https://clauderobots.github.io/skyscrapers-website/`.
+
+Note the asymmetry, confirmed after the rename: `github.com/ClaudeRobots/jarvis-website` and the old git remote URL **do** redirect, but the old **Pages** URL (`clauderobots.github.io/jarvis-website/`) now returns a hard 404 — github.io addresses are not redirected after a rename. Any link shared before 3 Aug 2026 is dead and has to be reissued.
 
 ## Commands
 
