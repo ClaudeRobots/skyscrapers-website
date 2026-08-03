@@ -4,31 +4,50 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static marketing website for "Jarvis" (a real-estate brand). Plain HTML, CSS, and vanilla JavaScript — **no build step, no framework, no dependencies, no package.json**. It is deployed to GitHub Pages straight from the `main` branch root.
+A static marketing website for "Jarvis" (a fictional real-estate brand). Plain HTML, CSS, and vanilla JavaScript — **no build step, no framework, no package.json**. The only external request is a Google Fonts stylesheet (Fredoka). Deployed to GitHub Pages from the branch root.
+
+Two designs live in git history:
+
+- **`v1` tag / `main` branch** — the original navy-and-gold corporate look. A folder copy also sits beside the repo at `../Jarvis Website v1 (navy-gold)`.
+- **`cartoon` branch** — the current cartoon redesign described below.
 
 ## Commands
 
-There is nothing to build or compile. To work on the site:
+Nothing to build or compile.
 
-- **Preview:** open any `.html` file directly in a browser, or serve the folder for correct relative paths: `npx serve .` (or `python -m http.server`).
+- **Preview:** `python -m http.server 8531` then open `http://localhost:8531/` (open the files directly and relative paths still work, but a server is closer to production).
 - **Deploy:** commit and `git push` to `origin/main`. GitHub Pages rebuilds automatically (~1–2 min). Live at `https://clauderobots.github.io/jarvis-website/`.
-- **Check the live Pages build** (requires GitHub CLI auth): `gh api repos/ClaudeRobots/jarvis-website/pages/builds/latest`.
+- **Check the live Pages build** (needs GitHub CLI auth): `gh api repos/ClaudeRobots/jarvis-website/pages/builds/latest`.
 
-There are no tests, linters, or CI.
+There are no tests, linters, or CI. To smoke-test changes, drive headless Chrome over CDP with Node's built-in `WebSocket` (no npm install — the corporate TLS proxy blocks the registry):
+
+```
+chrome.exe --headless=new --remote-debugging-port=9222 --window-size=1440,900 about:blank
+# then fetch http://127.0.0.1:9222/json/list and script Page.navigate / Runtime.evaluate / Page.captureScreenshot
+```
 
 ## Architecture
 
-Four sibling pages — `index.html`, `projects.html`, `about.html`, `contact.html` — that each link the **same** `css/styles.css` and `js/main.js`. There is no templating, so shared chrome (the `<header>` nav and `<footer>`) is **duplicated verbatim in every page**. When editing nav links, the footer, or brand markup, apply the identical change to all four files.
+Four sibling pages — `index.html`, `projects.html`, `about.html`, `contact.html` — each linking the **same** `css/styles.css` and `js/main.js`. There is no templating, so the `<header>` nav and `<footer>` are **duplicated verbatim in every page**. When editing nav links, the footer, or brand markup, apply the identical change to all four files.
 
-**`css/styles.css` is the single source of truth for the design.** It is a token-driven system: the `:root` CSS custom properties (colors like `--cyan`/`--violet`, `--glow-*` shadows, `--panel`, `--radius`, `--wrap`) define the futuristic dark/glassmorphism theme. Change the look by editing these variables rather than hardcoding values in rules. The animated backdrop (aurora gradients + drifting grid) is drawn with `body::before` / `body::after` and respects `prefers-reduced-motion`.
+**`css/styles.css` is the single source of truth for the design.** Token-driven: the `:root` custom properties (`--ink`, `--cream`, `--sun`, `--coral`, `--mint`, `--sky`, `--grape`, `--leaf`, plus `--line`, `--radius`, `--pop*`, `--jelly`) define the whole cartoon look. Change the look by editing these, not by hardcoding values in rules. The cartoon feel comes from three repeated moves: a thick `var(--line)` ink outline, a hard offset shadow (`--pop`), and a `--jelly` overshoot easing on every hover/press.
 
-**`js/main.js` is one IIFE containing independent feature modules**, each guarded by a check for the DOM elements it needs (e.g. `if (form && note)`). This is what lets a single script run across all pages — a module simply no-ops on pages lacking its markup. Current modules: footer year stamp, mobile nav toggle, IntersectionObserver-driven stat counters, project category filter, and contact-form validation. Add new interactive behavior as another self-guarded block in this same pattern.
+**`js/main.js` is one IIFE of independent, self-guarded modules** (`if (form && note)`-style checks), which is what lets a single script run across all pages — a module no-ops on pages lacking its markup. It also **generates most of the artwork**, so the HTML stays readable:
+
+- `ART.jarvi()`, `ART.car`, `ART.house(variant)` return inline SVG strings.
+- The whole sky is built by JS and injected as `body`'s first child.
+
+Current modules: sky builder, scroll journey, cursor parallax, footer year, mobile nav, headline letter-split, artwork injection, scroll reveals, stat counters, project filter, Jarvi behaviour, floating actions, brochure nudge, booking wizard.
 
 ## Conventions that matter
 
-- **Project cards** set their accent color via an inline `style="--h:#..."` CSS variable consumed by `.card-media`. The **projects-page filter** keys off `data-type="residential|commercial"` on each `.card`, matched against the `data-filter` on `.chip` buttons — keep these attributes in sync when adding projects.
-- **Animated stat counters** read their target from `data-count` on `.num` elements; the displayed `0` is replaced on scroll-into-view.
-- **The contact form is client-side only.** It validates and shows a confirmation message but sends nothing — GitHub Pages has no backend. Wiring real submissions requires an external service (e.g. Formspree). Do not imply the current form delivers mail.
+- **The day-to-night scroll journey is the signature.** A fixed `.sky` holds four stacked gradient layers (dawn/day/dusk/night). On scroll, JS writes `--l-dawn/--l-day/--l-dusk/--l-night` opacities, a `--night` value (0→1), and the `--sun-x/--sun-y` and `--moon-x/--moon-y` arcs. **Anything that should react to nightfall reads `var(--night)` in CSS** — that's how the skyline and footer windows light up. Never animate the sky from JS frame by frame; just set the variables.
+- **Project cards** set their accent via inline `style="--h:#..."`, consumed by `.house .wall` and the card media. `data-house="cottage|tower|villa|shop"` picks the artwork. The projects-page filter keys off `data-type="residential|commercial"` matched against `data-filter` on `.chip` buttons — keep both attributes in sync when adding a project.
+- **The booking wizard is the lead capture and it is real.** `initWizard()` builds the whole 4-step form (type → budget → date → details) into a host element. Two mount points: a modal created on demand, opened by **any element with `data-book`** (optional `data-project` / `data-source` attributes), and an inline mount on the contact page via `<div id="bookInline">`. There is only one copy of this markup — do not hand-write a second form.
+- **Submissions go to Formspree** (`ENDPOINT` in `js/main.js`, form `xlgqwdeg`) and really do send mail. Hidden fields carry `looking_for`, `budget`, `visit_date`, `visit_time`, `project`, `came_from` and `page` so the enquiry email says which card the visitor clicked. If you add a wizard step, add its hidden field too or the answer never reaches the inbox.
+- **Animated stat counters** read `data-count` (and optional `data-suffix`) on `.num`; the easing deliberately overshoots the target before settling, so a mid-animation screenshot showing a larger number is expected.
+- `body` attributes are page-level switches: `data-phone` feeds the WhatsApp/call buttons, `data-no-peek` suppresses the Jarvi nudge and brochure card (used on the contact page), `data-no-floaters` hides the floating buttons.
+- **Motion is opt-out.** `prefers-reduced-motion` is honoured in CSS *and* read as `calm` in JS to skip confetti and counter animation. Keep new animation to `transform`/`opacity` so mobile scrolling stays smooth.
 - `.nojekyll` must stay present so Pages serves files as-is without Jekyll processing.
-- All content (project names, prices, phone, email, stats) is **placeholder** data.
-- Files are UTF-8 with non-ASCII glyphs (— · ₹ ©). Avoid bulk find/replace through Windows PowerShell `Get-Content`/`Set-Content`, which corrupts these into mojibake; edit with tools that preserve UTF-8.
+- All content (project names, prices, phone, email, stats, testimonials) is **placeholder** data.
+- Files are UTF-8 with non-ASCII glyphs (— · ₹ © and emoji). Avoid bulk find/replace through PowerShell `Get-Content`/`Set-Content`, which corrupts these into mojibake; edit with tools that preserve UTF-8.

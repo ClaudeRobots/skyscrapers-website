@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Jarvis to book a visit or enquire about a project." />
-  <title>Contact — Jarvis</title>
+  <meta name="description" content="Book a site visit with Jarvis in four taps, or just call us." />
+  <title>Book a Visit — Jarvis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
+<body data-phone="+910000000000" data-no-peek>
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="index.html">Jar<span>vis</span></a>
@@ -18,7 +21,7 @@
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
-        <a href="contact.html" class="btn btn-nav active">Contact</a>
+        <a href="contact.html" class="btn-nav active">Book a Visit</a>
       </nav>
     </div>
   </header>
@@ -26,69 +29,84 @@
   <main>
     <section class="page-head">
       <div class="container">
-        <p class="eyebrow">Let's Talk</p>
-        <h1>Contact Us</h1>
-        <p class="lead">Book a site visit or ask us anything — we usually reply within a day.</p>
+        <p class="eyebrow">🚗 Four taps, that's it</p>
+        <h1 class="pop-in">Book your visit</h1>
+        <p class="lead">Tell us what you're after and when. We'll call to confirm — no forms to wrestle with.</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="padding-top:1.5rem">
       <div class="container contact-grid">
-        <form class="contact-form" id="contactForm" action="https://formspree.io/f/xlgqwdeg" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="New enquiry from Jarvis website" />
-          <div class="field">
-            <label for="name">Full name</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="_replyto" required />
-          </div>
-          <div class="field">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" />
-          </div>
-          <div class="field">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Send Enquiry</button>
-          <p class="form-note" id="formNote" role="status"></p>
-        </form>
+        <!-- The wizard mounts itself here -->
+        <div id="bookInline"></div>
 
-        <aside class="contact-info">
-          <h3>Sales Office</h3>
+        <aside class="panel contact-info">
+          <h3>🏢 Sales Office</h3>
           <p class="muted">Sector 79, Gurugram,<br />Haryana 122004, India</p>
-          <h3>Call</h3>
-          <p class="muted">+91 00000 00000</p>
-          <h3>Email</h3>
+          <h3>📞 Call</h3>
+          <p class="muted"><a href="tel:+910000000000">+91 00000 00000</a></p>
+          <h3>💬 WhatsApp</h3>
+          <p class="muted"><a href="https://wa.me/910000000000" target="_blank" rel="noopener">Message us anytime</a></p>
+          <h3>✉️ Email</h3>
           <p class="muted">hello@jarvis.example</p>
-          <h3>Hours</h3>
+          <h3>🕙 Hours</h3>
           <p class="muted">Mon–Sat · 10:00 – 19:00</p>
+
+          <svg viewBox="0 0 300 150" style="margin-top:1.2rem" aria-hidden="true">
+            <rect x="4" y="4" width="292" height="142" rx="18" fill="#cfeccb" stroke="#2b2140" stroke-width="4"/>
+            <path d="M4 96 Q80 84 150 100 T296 92" fill="none" stroke="#7ec8f5" stroke-width="10" stroke-linecap="round"/>
+            <path d="M40 146 L40 60 M40 60 L120 60" fill="none" stroke="#fffdf7" stroke-width="9"/>
+            <path d="M200 146 L200 40 L296 40" fill="none" stroke="#fffdf7" stroke-width="9"/>
+            <circle cx="25" cy="34" r="16" fill="#6bcf7f" stroke="#2b2140" stroke-width="3"/>
+            <circle cx="262" cy="118" r="14" fill="#6bcf7f" stroke="#2b2140" stroke-width="3"/>
+            <path d="M150 44 L166 62 L150 100 L134 62 Z" fill="#ff6b6b" stroke="#2b2140" stroke-width="4" stroke-linejoin="round"/>
+            <circle cx="150" cy="60" r="6" fill="#fffdf7"/>
+            <text x="150" y="130" font-size="15" font-family="Fredoka, sans-serif" text-anchor="middle" fill="#2b2140">Sector 79, Gurugram</text>
+          </svg>
         </aside>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="index.html">Jar<span>vis</span></a>
-        <p class="muted">Building landmarks of modern living across Gurugram.</p>
+    <svg class="footer-houses" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 120 V70 L60 30 L120 70 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="76" y="72" width="26" height="22" rx="3"/>
+      <path d="M150 120 V56 L215 18 L280 56 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="196" y="66" width="30" height="24" rx="3"/>
+      <path d="M320 120 V78 L380 44 L440 78 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="366" y="86" width="26" height="20" rx="3"/>
+      <path d="M500 120 V60 L560 24 L620 60 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="546" y="70" width="28" height="22" rx="3"/>
+      <path d="M690 120 V74 L750 38 L810 74 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="736" y="84" width="26" height="20" rx="3"/>
+      <path d="M880 120 V52 L945 16 L1010 52 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="926" y="64" width="30" height="24" rx="3"/>
+      <path d="M1070 120 V76 L1130 42 L1190 76 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="1116" y="86" width="26" height="20" rx="3"/>
+      <path d="M1250 120 V62 L1315 26 L1380 62 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="1296" y="72" width="28" height="22" rx="3"/>
+    </svg>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Jar<span>vis</span></a>
+          <p class="muted">Building happy little neighbourhoods across Gurugram.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Reach Us</h4>
+          <p class="muted">Sector 79, Gurugram, Haryana<br />+91 00000 00000<br />hello@jarvis.example</p>
+        </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Jarvis. All rights reserved. · Placeholder content, just for fun.</span>
       </div>
-      <div>
-        <h4>Reach Us</h4>
-        <p class="muted">Sector 79, Gurugram, Haryana<br />+91 00000 00000<br />hello@jarvis.example</p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> Jarvis. All rights reserved.</span>
     </div>
   </footer>
 

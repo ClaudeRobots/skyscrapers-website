@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jarvis — premium residential and commercial real estate in Gurugram and beyond." />
-  <title>Jarvis — Premium Real Estate</title>
+  <meta name="description" content="Jarvis builds happy little neighbourhoods across Gurugram. Book a site visit in four taps." />
+  <title>Jarvis — Homes with a Happy Face</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body>
-  <header class="site-header" id="top">
+<body data-phone="+910000000000">
+  <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="index.html">Jar<span>vis</span></a>
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -18,102 +21,269 @@
         <a href="index.html" class="active">Home</a>
         <a href="projects.html">Projects</a>
         <a href="about.html">About</a>
-        <a href="contact.html" class="btn btn-nav">Contact</a>
+        <a href="contact.html" class="btn-nav" data-book data-source="header">Book a Visit</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- ================= HERO ================= -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="eyebrow">Gurugram · Premium Living</p>
-        <h1>Homes that redefine the skyline.</h1>
-        <p class="lead">
-          Jarvis crafts landmark residential and commercial spaces
-          designed for the way modern India lives, works, and grows.
-        </p>
-        <div class="hero-actions">
-          <a href="projects.html" class="btn btn-primary">Explore Projects</a>
-          <a href="contact.html" class="btn btn-ghost">Book a Visit</a>
+        <p class="eyebrow">🏡 Gurugram · Since 2007</p>
+        <h1 class="pop-in">Find a home you'll love</h1>
+        <svg class="squiggle" viewBox="0 0 400 24" aria-hidden="true">
+          <path d="M6 16 Q60 4 110 15 T220 14 Q290 6 340 17 T394 11" />
+        </svg>
+        <p class="lead">Bright, friendly neighbourhoods built for real families — not brochures. Come see one this weekend.</p>
+        <div class="hero-cta">
+          <button class="btn btn-coral btn-lg" type="button" data-book data-source="hero">📅 Book a Visit</button>
+          <a class="btn btn-lg" href="projects.html">See the homes →</a>
         </div>
       </div>
-    </section>
 
-    <section class="stats">
-      <div class="container stats-grid">
-        <div class="stat"><span class="num" data-count="25">0</span><span class="label">Acres Developed</span></div>
-        <div class="stat"><span class="num" data-count="8">0</span><span class="label">Signature Projects</span></div>
-        <div class="stat"><span class="num" data-count="3500">0</span><span class="label">Happy Families</span></div>
-        <div class="stat"><span class="num" data-count="12">0</span><span class="label">Years of Trust</span></div>
+      <div class="hero-jarvi">
+        <div class="bubble">Hi, I'm Jarvi! Tap me 👋</div>
+      </div>
+
+      <div class="skyline">
+        <svg viewBox="0 0 1440 280" aria-hidden="true">
+          <rect x="90" y="96" width="140" height="150" rx="14" fill="#8d6cf0" stroke="#2b2140" stroke-width="6"/>
+          <rect class="win" x="115" y="120" width="30" height="26" rx="4"/>
+          <rect class="win" x="175" y="120" width="30" height="26" rx="4"/>
+          <rect class="win" x="115" y="168" width="30" height="26" rx="4"/>
+          <rect class="win" x="175" y="168" width="30" height="26" rx="4"/>
+
+          <rect x="250" y="40" width="120" height="206" rx="14" fill="#4ecdc4" stroke="#2b2140" stroke-width="6"/>
+          <rect x="286" y="14" width="48" height="30" rx="8" fill="#2b2140"/>
+          <rect class="win" x="275" y="70" width="28" height="24" rx="4"/>
+          <rect class="win" x="318" y="70" width="28" height="24" rx="4"/>
+          <rect class="win" x="275" y="112" width="28" height="24" rx="4"/>
+          <rect class="win" x="318" y="112" width="28" height="24" rx="4"/>
+          <rect class="win" x="275" y="154" width="28" height="24" rx="4"/>
+          <rect class="win" x="318" y="154" width="28" height="24" rx="4"/>
+
+          <path d="M400 246 V150 L470 96 L540 150 V246 Z" fill="#ffa45c" stroke="#2b2140" stroke-width="6" stroke-linejoin="round"/>
+          <rect class="win" x="440" y="164" width="34" height="30" rx="4"/>
+
+          <rect x="570" y="122" width="150" height="124" rx="14" fill="#ff6b6b" stroke="#2b2140" stroke-width="6"/>
+          <rect class="win" x="596" y="146" width="32" height="28" rx="4"/>
+          <rect class="win" x="660" y="146" width="32" height="28" rx="4"/>
+          <rect class="win" x="596" y="192" width="32" height="28" rx="4"/>
+          <rect class="win" x="660" y="192" width="32" height="28" rx="4"/>
+
+          <rect x="748" y="64" width="128" height="182" rx="14" fill="#7ec8f5" stroke="#2b2140" stroke-width="6"/>
+          <rect class="win" x="772" y="92" width="30" height="26" rx="4"/>
+          <rect class="win" x="822" y="92" width="30" height="26" rx="4"/>
+          <rect class="win" x="772" y="136" width="30" height="26" rx="4"/>
+          <rect class="win" x="822" y="136" width="30" height="26" rx="4"/>
+          <rect class="win" x="772" y="180" width="30" height="26" rx="4"/>
+          <rect class="win" x="822" y="180" width="30" height="26" rx="4"/>
+
+          <path d="M906 246 V158 L976 104 L1046 158 V246 Z" fill="#6bcf7f" stroke="#2b2140" stroke-width="6" stroke-linejoin="round"/>
+          <rect class="win" x="948" y="176" width="34" height="30" rx="4"/>
+
+          <rect x="1076" y="110" width="140" height="136" rx="14" fill="#ffc93c" stroke="#2b2140" stroke-width="6"/>
+          <rect class="win" x="1102" y="136" width="32" height="28" rx="4"/>
+          <rect class="win" x="1160" y="136" width="32" height="28" rx="4"/>
+          <rect class="win" x="1102" y="182" width="32" height="28" rx="4"/>
+          <rect class="win" x="1160" y="182" width="32" height="28" rx="4"/>
+
+          <rect x="1244" y="150" width="112" height="96" rx="14" fill="#8d6cf0" stroke="#2b2140" stroke-width="6"/>
+          <rect class="win" x="1268" y="176" width="30" height="26" rx="4"/>
+          <rect class="win" x="1312" y="176" width="30" height="26" rx="4"/>
+
+          <rect x="0" y="246" width="1440" height="34" fill="#6b6480"/>
+          <rect x="0" y="242" width="1440" height="8" fill="#2b2140"/>
+        </svg>
+        <div class="car-lane"></div>
       </div>
     </section>
 
+    <!-- ================= WHY US ================= -->
     <section class="section">
       <div class="container">
         <div class="section-head">
-          <h2>Featured Projects</h2>
-          <a href="projects.html" class="link-more">View all →</a>
+          <h2>Why people pick Jarvis</h2>
+          <p class="lead muted">No jargon, no surprise charges, no pressure.</p>
         </div>
-        <div class="cards">
-          <article class="card">
-            <div class="card-media" style="--h:#1f3a5f"></div>
+        <div class="grid grid-3">
+          <article class="feature reveal">
+            <div class="doodle" style="--h:#ffc93c">🔑</div>
+            <h3>On-time keys</h3>
+            <p class="muted">Every tower we've built handed over on schedule. We put that in writing.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="doodle" style="--h:#4ecdc4">🌳</div>
+            <h3>Actually green</h3>
+            <p class="muted">Half of every project is open space — parks, courtyards and proper big trees.</p>
+          </article>
+          <article class="feature reveal">
+            <div class="doodle" style="--h:#ff6b6b">💬</div>
+            <h3>Straight answers</h3>
+            <p class="muted">One person handles your file start to finish. You'll have their number.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FEATURED PROJECTS ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Homes ready to visit</h2>
+          <p class="lead muted">Hover a house — the door's open.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="card reveal" data-type="residential" style="--h:#7ec8f5">
+            <div class="card-media" data-house="tower">
+              <span class="tag">Ready to move</span>
+              <span class="price-tag">₹1.2 Cr</span>
+            </div>
             <div class="card-body">
-              <span class="tag">Residential</span>
-              <h3>The Edition</h3>
-              <p>3 &amp; 4 BHK sky residences with panoramic city views on Golf Course Extn.</p>
-              <span class="price">From ₹2.4 Cr</span>
+              <h3>Sunrise Heights</h3>
+              <p class="card-meta"><span>🛏️ 3 BHK</span><span>📐 1,650 sq ft</span><span>📍 Sector 79</span></p>
+              <button class="btn btn-mint" type="button" data-book data-project="Sunrise Heights" data-source="home card">Book a Visit</button>
             </div>
           </article>
-          <article class="card">
-            <div class="card-media" style="--h:#3f5f1f"></div>
+
+          <article class="card reveal" data-type="residential" style="--h:#6bcf7f">
+            <div class="card-media" data-house="villa">
+              <span class="tag">New launch</span>
+              <span class="price-tag">₹2.8 Cr</span>
+            </div>
             <div class="card-body">
-              <span class="tag">Commercial</span>
-              <h3>One World Plaza</h3>
-              <p>Grade-A office and retail space at the heart of Sector 79, Gurugram.</p>
-              <span class="price">From ₹85 L</span>
+              <h3>Green Meadows</h3>
+              <p class="card-meta"><span>🏡 4 BHK Villa</span><span>📐 3,200 sq ft</span><span>📍 Sector 84</span></p>
+              <button class="btn btn-mint" type="button" data-book data-project="Green Meadows" data-source="home card">Book a Visit</button>
             </div>
           </article>
-          <article class="card">
-            <div class="card-media" style="--h:#5f1f3a"></div>
+
+          <article class="card reveal" data-type="commercial" style="--h:#ffc93c">
+            <div class="card-media" data-house="shop">
+              <span class="tag">High street</span>
+              <span class="price-tag">₹85 L</span>
+            </div>
             <div class="card-body">
-              <span class="tag">Residential</span>
-              <h3>Orchard Green</h3>
-              <p>Low-rise garden homes surrounded by 5 acres of landscaped greenery.</p>
-              <span class="price">From ₹1.8 Cr</span>
+              <h3>Market Square</h3>
+              <p class="card-meta"><span>🏪 Retail</span><span>📐 640 sq ft</span><span>📍 Sector 67</span></p>
+              <button class="btn btn-mint" type="button" data-book data-project="Market Square" data-source="home card">Book a Visit</button>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="cta">
-      <div class="container cta-inner">
-        <h2>Ready to find your address?</h2>
-        <p>Speak with our team and schedule a private site tour.</p>
-        <a href="contact.html" class="btn btn-primary">Get in Touch</a>
+    <!-- ================= STATS ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="panel">
+          <div class="stats">
+            <div class="stat" style="--h:#ffc93c">
+              <span class="num" data-count="1240" data-suffix="+">0</span>
+              <span class="label">Happy families</span>
+            </div>
+            <div class="stat" style="--h:#4ecdc4">
+              <span class="num" data-count="18">0</span>
+              <span class="label">Years building</span>
+            </div>
+            <div class="stat" style="--h:#ff6b6b">
+              <span class="num" data-count="12">0</span>
+              <span class="label">Projects delivered</span>
+            </div>
+            <div class="stat" style="--h:#6bcf7f">
+              <span class="num" data-count="52" data-suffix="%">0</span>
+              <span class="label">Open green space</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TESTIMONIALS ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>What the neighbours say</h2></div>
+        <div class="grid grid-3">
+          <article class="quote reveal">
+            <p>They handed over three weeks early. I genuinely did not believe it until I had the keys.</p>
+            <div class="who">
+              <span class="avatar" style="--h:#ffc93c">👩</span>
+              <span><strong>Meera R.</strong><br /><small class="muted">Sunrise Heights</small></span>
+            </div>
+          </article>
+          <article class="quote reveal">
+            <p>The park is the real deal. My kids are outside every evening instead of on a screen.</p>
+            <div class="who">
+              <span class="avatar" style="--h:#4ecdc4">👨</span>
+              <span><strong>Arjun S.</strong><br /><small class="muted">Green Meadows</small></span>
+            </div>
+          </article>
+          <article class="quote reveal">
+            <p>No hidden charges at the end. That alone made it worth choosing them.</p>
+            <div class="who">
+              <span class="avatar" style="--h:#ff6b6b">🧑</span>
+              <span><strong>Kavita P.</strong><br /><small class="muted">Market Square</small></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-band reveal">
+          <span class="sparkle" style="top:14%;left:8%">✨</span>
+          <span class="sparkle" style="top:62%;left:88%;animation-delay:1.2s">⭐</span>
+          <span class="sparkle" style="top:20%;left:78%;animation-delay:2.1s">✨</span>
+          <h2>Come see it in person</h2>
+          <p class="lead">Pick a day, we'll bring the chai. Four taps and you're booked.</p>
+          <button class="btn btn-coral btn-lg" type="button" data-book data-source="home cta">📅 Book my visit</button>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <a class="brand" href="index.html">Jar<span>vis</span></a>
-        <p class="muted">Building landmarks of modern living across Gurugram.</p>
+    <svg class="footer-houses" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 120 V70 L60 30 L120 70 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="76" y="72" width="26" height="22" rx="3"/>
+      <path d="M150 120 V56 L215 18 L280 56 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="196" y="66" width="30" height="24" rx="3"/>
+      <path d="M320 120 V78 L380 44 L440 78 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="366" y="86" width="26" height="20" rx="3"/>
+      <path d="M500 120 V60 L560 24 L620 60 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="546" y="70" width="28" height="22" rx="3"/>
+      <path d="M690 120 V74 L750 38 L810 74 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="736" y="84" width="26" height="20" rx="3"/>
+      <path d="M880 120 V52 L945 16 L1010 52 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="926" y="64" width="30" height="24" rx="3"/>
+      <path d="M1070 120 V76 L1130 42 L1190 76 V120 Z" fill="#3b2f6e"/>
+      <rect class="fwin" x="1116" y="86" width="26" height="20" rx="3"/>
+      <path d="M1250 120 V62 L1315 26 L1380 62 V120 Z" fill="#33296b"/>
+      <rect class="fwin" x="1296" y="72" width="28" height="22" rx="3"/>
+    </svg>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="index.html">Jar<span>vis</span></a>
+          <p class="muted">Building happy little neighbourhoods across Gurugram.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="projects.html">Projects</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div>
+          <h4>Reach Us</h4>
+          <p class="muted">Sector 79, Gurugram, Haryana<br />+91 00000 00000<br />hello@jarvis.example</p>
+        </div>
       </div>
-      <div>
-        <h4>Explore</h4>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Jarvis. All rights reserved. · Placeholder content, just for fun.</span>
       </div>
-      <div>
-        <h4>Reach Us</h4>
-        <p class="muted">Sector 79, Gurugram, Haryana<br />+91 00000 00000<br />hello@jarvis.example</p>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <span>© <span id="year"></span> Jarvis. All rights reserved.</span>
     </div>
   </footer>
 
