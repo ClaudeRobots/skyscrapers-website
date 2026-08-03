@@ -22,7 +22,7 @@ Every bit of artwork is inline SVG drawn in code, so the whole site is a few ten
 ## Structure
 
 ```
-jarvis-website/
+skyscrapers-website/
 ├── index.html
 ├── projects.html
 ├── about.html
@@ -55,7 +55,9 @@ The wizard posts to [Formspree](https://formspree.io) (form `xlgqwdeg`) and **re
 ## Versions
 
 - `v1` tag — the original navy-and-gold corporate design, from when the brand was called "Jarvis".
-- `main` / `cartoon` — this one. The repo and Pages URL still use the old `jarvis-website` name.
+- `main` / `cartoon` — this one.
+
+Live at <https://clauderobots.github.io/skyscrapers-website/>.
 
 ---
 Content, prices, names and figures are all placeholders. Built for fun.

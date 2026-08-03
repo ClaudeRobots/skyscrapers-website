@@ -11,15 +11,15 @@ Two designs live in git history:
 - **`v1` tag** — the original navy-and-gold corporate look, back when the brand was called "Jarvis". A folder copy also sits beside the repo at `../Jarvis Website v1 (navy-gold)`.
 - **`main` / `cartoon` branches** — the current cartoon redesign described below. Both point at the same commits; `main` is what GitHub Pages serves.
 
-The repo, its remote (`ClaudeRobots/jarvis-website`) and the live Pages URL still carry the old **jarvis** name — only the brand shown to visitors changed. Don't "fix" those paths to match the brand unless the repo itself is renamed.
+The repo was renamed from `jarvis-website` to `skyscrapers-website` on 3 Aug 2026, so the live URL moved to `https://clauderobots.github.io/skyscrapers-website/`. GitHub redirects the old address, but prefer the new one everywhere.
 
 ## Commands
 
 Nothing to build or compile.
 
 - **Preview:** `python -m http.server 8531` then open `http://localhost:8531/` (open the files directly and relative paths still work, but a server is closer to production).
-- **Deploy:** commit and `git push` to `origin/main`. GitHub Pages rebuilds automatically (~1–2 min). Live at `https://clauderobots.github.io/jarvis-website/`.
-- **Check the live Pages build** (needs GitHub CLI auth): `gh api repos/ClaudeRobots/jarvis-website/pages/builds/latest`.
+- **Deploy:** commit and `git push` to `origin/main`. GitHub Pages rebuilds automatically (~1–2 min). Live at `https://clauderobots.github.io/skyscrapers-website/`.
+- **Check the live Pages build** (needs GitHub CLI auth): `gh api repos/ClaudeRobots/skyscrapers-website/pages/builds/latest`.
 
 There are no tests, linters, or CI. To smoke-test changes, drive headless Chrome over CDP with Node's built-in `WebSocket` (no npm install — the corporate TLS proxy blocks the registry):
 
