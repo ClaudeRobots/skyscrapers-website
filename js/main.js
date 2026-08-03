@@ -1,5 +1,5 @@
 /* ============================================================
-   Jarvis — cartoon edition
+   SkyScrapers — cartoon edition
    One IIFE, independent self-guarded modules. A module that
    doesn't find its markup simply no-ops, so this single file
    runs unchanged on every page.
@@ -25,9 +25,9 @@
       '<g class="wheel"><circle cx="92" cy="52" r="9" fill="#2b2140"/><circle cx="92" cy="52" r="3.5" fill="#fffdf7"/></g>' +
       '</svg>',
 
-    /* Jarvi — house-headed robot. cls lets a caller add state classes. */
-    jarvi: function (cls) {
-      return '<svg class="jarvi ' + (cls || "") + '" viewBox="0 0 160 205" aria-hidden="true">' +
+    /* Skye — house-headed robot. cls lets a caller add state classes. */
+    skye: function (cls) {
+      return '<svg class="skye ' + (cls || "") + '" viewBox="0 0 160 205" aria-hidden="true">' +
         '<g class="body-g">' +
         // antenna
         '<line x1="80" y1="30" x2="80" y2="14" stroke="#2b2140" stroke-width="5" stroke-linecap="round"/>' +
@@ -178,7 +178,7 @@
     paint();
   })();
 
-  /* Cursor parallax — clouds and Jarvi lean with the mouse */
+  /* Cursor parallax — clouds and Skye lean with the mouse */
   if (!calm) {
     window.addEventListener("mousemove", function (e) {
       root.style.setProperty("--mx", ((e.clientX / window.innerWidth) * 2 - 1).toFixed(3));
@@ -324,17 +324,17 @@
   }
 
   /* ============================================================
-     5. JARVI — hero mascot, eye tracking, peek, easter egg
+     5. SKYE — hero mascot, eye tracking, peek, easter egg
      ============================================================ */
 
-  var heroSlot = document.querySelector(".hero-jarvi");
-  // appended, so the speech bubble in the markup sits above Jarvi's head
-  if (heroSlot) heroSlot.insertAdjacentHTML("beforeend", ART.jarvi());
+  var heroSlot = document.querySelector(".hero-skye");
+  // appended, so the speech bubble in the markup sits above Skye's head
+  if (heroSlot) heroSlot.insertAdjacentHTML("beforeend", ART.skye());
 
   // Eyes follow the cursor
   if (!calm) {
     window.addEventListener("mousemove", function (e) {
-      document.querySelectorAll(".jarvi").forEach(function (svg) {
+      document.querySelectorAll(".skye").forEach(function (svg) {
         var box = svg.getBoundingClientRect();
         if (!box.width) return;
         var cx = box.left + box.width / 2;
@@ -348,10 +348,10 @@
     }, { passive: true });
   }
 
-  // Click Jarvi five times and it dances
+  // Click Skye five times and it dances
   var taps = 0, tapTimer = null;
   document.addEventListener("click", function (e) {
-    var svg = e.target.closest && e.target.closest(".jarvi");
+    var svg = e.target.closest && e.target.closest(".skye");
     if (!svg) return;
     taps++;
     clearTimeout(tapTimer);
@@ -366,14 +366,14 @@
     }
   });
 
-  // Jarvi peeks up after a quiet spell and offers to help
+  // Skye peeks up after a quiet spell and offers to help
   (function peek() {
-    if (document.querySelector(".jarvi-peek") || document.body.hasAttribute("data-no-peek")) return;
+    if (document.querySelector(".skye-peek") || document.body.hasAttribute("data-no-peek")) return;
     var el = document.createElement("div");
-    el.className = "jarvi-peek";
+    el.className = "skye-peek";
     el.innerHTML =
       '<div class="bubble">Want to see it in person? I can set up a visit 👋</div>' +
-      ART.jarvi() +
+      ART.skye() +
       '<button class="peek-close" aria-label="Dismiss">×</button>';
     document.body.appendChild(el);
 
@@ -390,7 +390,7 @@
         clearTimeout(timer);
         return;
       }
-      if (shown) { el.classList.remove("up"); openBooking("Jarvi nudge"); }
+      if (shown) { el.classList.remove("up"); openBooking("Skye nudge"); }
     });
   })();
 
@@ -407,7 +407,7 @@
     f.className = "floaters";
     f.innerHTML =
       '<a class="floater" style="--h:#6bcf7f" href="https://wa.me/' + wa +
-      '?text=Hi%20Jarvis%2C%20I%27d%20like%20to%20book%20a%20site%20visit" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>' +
+      '?text=Hi%20SkyScrapers%2C%20I%27d%20like%20to%20book%20a%20site%20visit" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>' +
       '<a class="floater" style="--h:#ffc93c" href="tel:' + phone + '" aria-label="Call us">📞</a>';
     document.body.appendChild(f);
 
@@ -561,12 +561,12 @@
       '<div class="field"><label for="bkPhone">Phone</label><input id="bkPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required /></div>' +
       '<div class="field"><label for="bkEmail">Email <span class="muted">(optional)</span></label><input id="bkEmail" name="_replyto" type="email" autocomplete="email" /></div>' +
       '<div class="field"><label for="bkMsg">Anything else? <span class="muted">(optional)</span></label><textarea id="bkMsg" name="message" rows="2"></textarea></div>' +
-      '</div>' + ART.jarvi() + '</div>' +
+      '</div>' + ART.skye() + '</div>' +
       '<p class="form-note" data-note role="status"></p>' +
       '</section>' +
 
       // hidden context — makes every lead far more useful in the inbox
-      '<input type="hidden" name="_subject" value="New site-visit booking from the Jarvis website" />' +
+      '<input type="hidden" name="_subject" value="New site-visit booking from the SkyScrapers website" />' +
       '<input type="hidden" name="looking_for" data-h="type" />' +
       '<input type="hidden" name="budget" data-h="budget" />' +
       '<input type="hidden" name="visit_date" data-h="date" />' +
@@ -582,7 +582,7 @@
       '</div>' +
       '</form>' +
 
-      '<div class="book-done">' + ART.jarvi("waving") +
+      '<div class="book-done">' + ART.skye("waving") +
       '<div class="keys">🔑</div>' +
       '<h3 data-done-title>You’re booked!</h3>' +
       '<p data-done-text class="muted"></p>' +
@@ -619,7 +619,7 @@
     var nextBtn = host.querySelector("[data-next]");
     var sendBtn = host.querySelector("[data-submit]");
     var note = host.querySelector("[data-note]");
-    var jarviInForm = host.querySelector(".details-row .jarvi");
+    var skyeInForm = host.querySelector(".details-row .skye");
 
     var state = { step: 1, type: "", budget: BUDGETS[1].label, date: "", pretty: "", when: "Morning (10am–1pm)", project: "", source: "" };
 
@@ -695,7 +695,7 @@
     });
     hidden("when", state.when);
 
-    // Step 4 — friendly validation, Jarvi reacts
+    // Step 4 — friendly validation, Skye reacts
     var nameF = host.querySelector("#bkName");
     var phoneF = host.querySelector("#bkPhone");
     var emailF = host.querySelector("#bkEmail");
@@ -710,9 +710,9 @@
         field.appendChild(hint);
       }
       hint.textContent = msg;
-      if (jarviInForm) {
-        jarviInForm.classList.add("shy");
-        setTimeout(function () { jarviInForm.classList.remove("shy"); }, 1400);
+      if (skyeInForm) {
+        skyeInForm.classList.add("shy");
+        setTimeout(function () { skyeInForm.classList.remove("shy"); }, 1400);
       }
       input.focus();
     }
@@ -727,9 +727,9 @@
     });
     phoneF.addEventListener("blur", function () {
       var digits = phoneF.value.replace(/\D/g, "");
-      if (digits.length >= 10 && jarviInForm) {
-        jarviInForm.classList.add("waving");
-        setTimeout(function () { jarviInForm.classList.remove("waving"); }, 2400);
+      if (digits.length >= 10 && skyeInForm) {
+        skyeInForm.classList.add("waving");
+        setTimeout(function () { skyeInForm.classList.remove("waving"); }, 2400);
       }
     });
 
@@ -821,7 +821,7 @@
     modal.api.open(source, project);
     modal.el.classList.add("open");
     document.body.style.overflow = "hidden";
-    var peekEl = document.querySelector(".jarvi-peek");
+    var peekEl = document.querySelector(".skye-peek");
     if (peekEl) peekEl.classList.remove("up");
   }
   function closeBooking() {

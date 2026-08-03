@@ -4,12 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static marketing website for "Jarvis" (a fictional real-estate brand). Plain HTML, CSS, and vanilla JavaScript — **no build step, no framework, no package.json**. The only external request is a Google Fonts stylesheet (Fredoka). Deployed to GitHub Pages from the branch root.
+A static marketing website for "SkyScrapers" (a fictional real-estate brand). Plain HTML, CSS, and vanilla JavaScript — **no build step, no framework, no package.json**. The only external request is a Google Fonts stylesheet (Fredoka). Deployed to GitHub Pages from the branch root.
 
 Two designs live in git history:
 
-- **`v1` tag / `main` branch** — the original navy-and-gold corporate look. A folder copy also sits beside the repo at `../Jarvis Website v1 (navy-gold)`.
-- **`cartoon` branch** — the current cartoon redesign described below.
+- **`v1` tag** — the original navy-and-gold corporate look, back when the brand was called "Jarvis". A folder copy also sits beside the repo at `../Jarvis Website v1 (navy-gold)`.
+- **`main` / `cartoon` branches** — the current cartoon redesign described below. Both point at the same commits; `main` is what GitHub Pages serves.
+
+The repo, its remote (`ClaudeRobots/jarvis-website`) and the live Pages URL still carry the old **jarvis** name — only the brand shown to visitors changed. Don't "fix" those paths to match the brand unless the repo itself is renamed.
 
 ## Commands
 
@@ -34,10 +36,10 @@ Four sibling pages — `index.html`, `projects.html`, `about.html`, `contact.htm
 
 **`js/main.js` is one IIFE of independent, self-guarded modules** (`if (form && note)`-style checks), which is what lets a single script run across all pages — a module no-ops on pages lacking its markup. It also **generates most of the artwork**, so the HTML stays readable:
 
-- `ART.jarvi()`, `ART.car`, `ART.house(variant)` return inline SVG strings.
+- `ART.skye()`, `ART.car`, `ART.house(variant)` return inline SVG strings.
 - The whole sky is built by JS and injected as `body`'s first child.
 
-Current modules: sky builder, scroll journey, cursor parallax, footer year, mobile nav, headline letter-split, artwork injection, scroll reveals, stat counters, project filter, Jarvi behaviour, floating actions, brochure nudge, booking wizard.
+Current modules: sky builder, scroll journey, cursor parallax, footer year, mobile nav, headline letter-split, artwork injection, scroll reveals, stat counters, project filter, Skye behaviour, floating actions, brochure nudge, booking wizard.
 
 ## Conventions that matter
 
@@ -46,7 +48,7 @@ Current modules: sky builder, scroll journey, cursor parallax, footer year, mobi
 - **The booking wizard is the lead capture and it is real.** `initWizard()` builds the whole 4-step form (type → budget → date → details) into a host element. Two mount points: a modal created on demand, opened by **any element with `data-book`** (optional `data-project` / `data-source` attributes), and an inline mount on the contact page via `<div id="bookInline">`. There is only one copy of this markup — do not hand-write a second form.
 - **Submissions go to Formspree** (`ENDPOINT` in `js/main.js`, form `xlgqwdeg`) and really do send mail. Hidden fields carry `looking_for`, `budget`, `visit_date`, `visit_time`, `project`, `came_from` and `page` so the enquiry email says which card the visitor clicked. If you add a wizard step, add its hidden field too or the answer never reaches the inbox.
 - **Animated stat counters** read `data-count` (and optional `data-suffix`) on `.num`; the easing deliberately overshoots the target before settling, so a mid-animation screenshot showing a larger number is expected.
-- `body` attributes are page-level switches: `data-phone` feeds the WhatsApp/call buttons, `data-no-peek` suppresses the Jarvi nudge and brochure card (used on the contact page), `data-no-floaters` hides the floating buttons.
+- `body` attributes are page-level switches: `data-phone` feeds the WhatsApp/call buttons, `data-no-peek` suppresses the Skye nudge and brochure card (used on the contact page), `data-no-floaters` hides the floating buttons.
 - **Motion is opt-out.** `prefers-reduced-motion` is honoured in CSS *and* read as `calm` in JS to skip confetti and counter animation. Keep new animation to `transform`/`opacity` so mobile scrolling stays smooth.
 - `.nojekyll` must stay present so Pages serves files as-is without Jekyll processing.
 - All content (project names, prices, phone, email, stats, testimonials) is **placeholder** data.

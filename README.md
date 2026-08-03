@@ -1,4 +1,4 @@
-# Jarvis — Cartoon Real Estate Website
+# SkyScrapers — Cartoon Real Estate Website
 
 A playful, hand-drawn-feeling marketing site for a fictional real-estate brand. Plain HTML, CSS and vanilla JavaScript — no build step, no framework, no dependencies. Deployable straight to GitHub Pages.
 
@@ -7,7 +7,7 @@ Every bit of artwork is inline SVG drawn in code, so the whole site is a few ten
 ## The fun bits
 
 - **A day-to-night scroll journey.** The page sits inside one continuous cartoon sky. Scroll and it runs sunrise → noon → dusk → night: the sun arcs over and sets, the moon rises, stars fade in, and the windows on every building light up.
-- **Jarvi, the mascot.** A house-headed robot who bobs, blinks, follows your cursor with its eyes, waves when you tap it — and dances if you tap it five times.
+- **Skye, the mascot.** A house-headed robot who bobs, blinks, follows your cursor with its eyes, waves when you tap it — and dances if you tap it five times.
 - **Doors that open.** Hover any project card and the front door swings open with a warm glow behind it.
 - **A 4-step booking wizard.** Progress is a road with a little car driving along it. Pick a home type, drag the budget slider and watch the house grow from hut to mansion, choose a day and a morning/evening slot, then leave your number. Confetti on submit.
 - Swinging price tags, a flapping SOLD OUT ribbon, spinning filter transitions, bouncing stat counters, drifting clouds, and a car that putters across the hero.
@@ -22,7 +22,7 @@ Every bit of artwork is inline SVG drawn in code, so the whole site is a few ten
 ## Structure
 
 ```
-Jarvis Website/
+jarvis-website/
 ├── index.html
 ├── projects.html
 ├── about.html
@@ -54,8 +54,8 @@ The wizard posts to [Formspree](https://formspree.io) (form `xlgqwdeg`) and **re
 
 ## Versions
 
-- `v1` tag — the original navy-and-gold corporate design.
-- `cartoon` branch — this one.
+- `v1` tag — the original navy-and-gold corporate design, from when the brand was called "Jarvis".
+- `main` / `cartoon` — this one. The repo and Pages URL still use the old `jarvis-website` name.
 
 ---
 Content, prices, names and figures are all placeholders. Built for fun.

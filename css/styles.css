@@ -1,5 +1,5 @@
 /* ============================================================
-   Jarvis — cartoon edition
+   SkyScrapers — cartoon edition
    Design tokens first. Change the look here, not in the rules.
    ============================================================ */
 
@@ -262,13 +262,15 @@ a { color: inherit; }
   letter-spacing: -0.02em;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  /* no flex gap here: "Sky" and "Scrapers" are separate flex items and a
+     gap would split the wordmark. The house mark carries its own margin. */
 }
 .brand span { color: var(--coral); }
 .brand::before {
   content: "";
   width: 30px;
   height: 30px;
+  margin-right: 0.45rem;
   background: var(--sun);
   border: var(--line) solid var(--ink);
   border-radius: 8px 8px 10px 10px;
@@ -680,49 +682,49 @@ a { color: inherit; }
 }
 
 /* ============================================================
-   JARVI — the mascot
+   SKYE — the mascot
    ============================================================ */
 
-.jarvi { width: 150px; display: block; overflow: visible; }
-.jarvi .body-g { animation: idleBob 3s ease-in-out infinite; transform-origin: center bottom; transform-box: fill-box; }
+.skye { width: 150px; display: block; overflow: visible; }
+.skye .body-g { animation: idleBob 3s ease-in-out infinite; transform-origin: center bottom; transform-box: fill-box; }
 @keyframes idleBob {
   0%, 100% { transform: translateY(0) scaleY(1); }
   50%      { transform: translateY(-7px) scaleY(1.02); }
 }
-.jarvi .pupil { transition: transform 0.18s var(--smooth); }
-.jarvi .lid { transform-origin: center top; transform-box: fill-box; animation: blink 5s infinite; }
+.skye .pupil { transition: transform 0.18s var(--smooth); }
+.skye .lid { transform-origin: center top; transform-box: fill-box; animation: blink 5s infinite; }
 @keyframes blink {
   0%, 92%, 100% { transform: scaleY(0); }
   95%, 97%      { transform: scaleY(1); }
 }
-.jarvi .antenna-ball { animation: pulseBall 2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.skye .antenna-ball { animation: pulseBall 2s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
 @keyframes pulseBall {
   0%, 100% { transform: scale(1); fill: var(--coral); }
   50%      { transform: scale(1.25); fill: var(--sun); }
 }
-.jarvi .arm-r { transform-origin: left center; transform-box: fill-box; }
-.jarvi.waving .arm-r { animation: wave 0.6s ease-in-out 4; }
+.skye .arm-r { transform-origin: left center; transform-box: fill-box; }
+.skye.waving .arm-r { animation: wave 0.6s ease-in-out 4; }
 @keyframes wave {
   0%, 100% { transform: rotate(0deg); }
   50%      { transform: rotate(-58deg); }
 }
-.jarvi.dancing { animation: dance 0.55s ease-in-out 5; }
+.skye.dancing { animation: dance 0.55s ease-in-out 5; }
 @keyframes dance {
   0%, 100% { transform: rotate(0) translateY(0); }
   25%      { transform: rotate(-11deg) translateY(-12px); }
   75%      { transform: rotate(11deg) translateY(-12px); }
 }
-.jarvi.shy .pupil { opacity: 0; }
+.skye.shy .pupil { opacity: 0; }
 
-/* Jarvi in the hero */
-.hero-jarvi {
+/* Skye in the hero */
+.hero-skye {
   position: absolute;
   right: clamp(0px, 6vw, 90px);
   bottom: 16%;
   z-index: 3;
   transform: translateX(calc(var(--mx) * 12px));
 }
-.hero-jarvi .jarvi { width: clamp(110px, 15vw, 190px); }
+.hero-skye .skye { width: clamp(110px, 15vw, 190px); }
 
 /* Speech bubble */
 .bubble {
@@ -754,8 +756,8 @@ a { color: inherit; }
   to   { opacity: 1; transform: none; }
 }
 
-/* Jarvi peeking up from the bottom edge after a while */
-.jarvi-peek {
+/* Skye peeking up from the bottom edge after a while */
+.skye-peek {
   position: fixed;
   right: 18px;
   bottom: 0;
@@ -767,9 +769,9 @@ a { color: inherit; }
   transition: transform 0.7s var(--jelly);
   cursor: pointer;
 }
-.jarvi-peek.up { transform: translateY(16%); }
-.jarvi-peek .jarvi { width: 118px; }
-.jarvi-peek .bubble { margin-bottom: 58px; }
+.skye-peek.up { transform: translateY(16%); }
+.skye-peek .skye { width: 118px; }
+.skye-peek .bubble { margin-bottom: 58px; }
 .peek-close {
   position: absolute;
   top: -6px;
@@ -1111,7 +1113,7 @@ input[type="range"]::-moz-range-thumb {
 
 .details-row { display: flex; gap: 1rem; align-items: flex-end; }
 .details-row .fields { flex: 1; min-width: 0; }
-.details-row .jarvi { width: 110px; flex: none; margin-bottom: 1rem; }
+.details-row .skye { width: 110px; flex: none; margin-bottom: 1rem; }
 
 .summary-chip {
   display: inline-block;
@@ -1129,7 +1131,7 @@ input[type="range"]::-moz-range-thumb {
 /* Success screen */
 .book-done { display: none; text-align: center; padding: 1rem 0; }
 .book-done.show { display: block; animation: stepIn 0.5s var(--jelly); }
-.book-done .jarvi { width: 150px; margin: 0 auto 1rem; }
+.book-done .skye { width: 150px; margin: 0 auto 1rem; }
 .keys { font-size: 3rem; display: inline-block; animation: jingle 0.7s var(--jelly) 3; }
 @keyframes jingle {
   0%, 100% { transform: rotate(0); }
@@ -1235,17 +1237,17 @@ input[type="range"]::-moz-range-thumb {
   .nav a { text-align: center; }
 
   .hero { min-height: 78vh; }
-  .hero-jarvi { right: 4px; bottom: 22%; opacity: 0.92; }
-  .hero-jarvi .jarvi { width: 96px; }
+  .hero-skye { right: 4px; bottom: 22%; opacity: 0.92; }
+  .hero-skye .skye { width: 96px; }
 
   .timeline-item:nth-child(odd),
   .timeline-item:nth-child(even) { margin: 0; }
 
-  .details-row .jarvi { display: none; }
+  .details-row .skye { display: none; }
 
   .mobile-bar { display: flex; }
   .floaters { bottom: 78px; }
-  .jarvi-peek { bottom: 62px; }
+  .skye-peek { bottom: 62px; }
   .nudge { bottom: 78px; left: 12px; right: 12px; max-width: none; }
   .site-footer { padding-bottom: 5rem; }
 }
